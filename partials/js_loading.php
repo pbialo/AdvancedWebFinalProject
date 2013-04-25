@@ -3,7 +3,7 @@
     File Name: js_loading.php
     Author Name: Paul Bialo
     Web Site Name: Blogging Site
-    File Description: JS scripts loaded throughout site
+    File Description: JS scripts loaded throughout site. "Required" at bottom of page body.
 */  
 	echo '
 		<!-- JavaScript at the bottom for fast page loading -->

@@ -6,22 +6,56 @@
     File Description: Includes the functions called
 */
 
-function get_contacts($db){
-	$query = "SELECT first_name, last_name, phone_number, address
-	FROM contacts 
-	ORDER BY last_name ASC";
-	$get_contacts_PDO = $db->query($query);
-	$contacts = $get_contacts_PDO->fetchAll(PDO::FETCH_ASSOC);
-	return $contacts;
+session_start();
+require "functions/db_pdo.php";
+
+$errors = array();
+$field_errors = array();
+
+function get_messages() {
+    $messages_array = '';
+    if (isset($_SESSION['messages'])) :
+        $messages_array = $_SESSION['messages'];
+        unset($_SESSION['messages']);        
+    endif;
+    return $messages_array;
 }
 
-function check_login($username, $password, $db){
-	$query = "SELECT username, password	FROM users";
-	$login = $db->query($query);
-	$users = $login->fetchAll(PDO::FETCH_ASSOC);
-	foreach($users as $user){ 
-		if (($user['password'] == $password) && ($user['username'] == $username)) {
-			return true;
-		}
+function check_username_exists($username){
+	global $db;
+	$query = "SELECT * FROM users WHERE username = ?";
+	$stmt = $db->prepare($query);
+	$stmt->execute(array($username));
+	$row_count = $stmt->rowCount();
+
+	if (empty($row_count)) {
+		$username_exists = false;
+	} 
+	else {
+		$username_exists = true;
+	}
+	return $username_exists;
+}
+
+function check_password_correct($username, $password){
+	global $db;
+	$query = "SELECT * FROM users WHERE username = ? ";
+	$stmt = $db->prepare($query);
+	$stmt->execute(array($username));
+	$username = $stmt->fetch(PDO::FETCH_ASSOC);
+	$password = SHA1($password);
+
+	if ($password == $username['password']){
+		return $username['id'];
+	}
+	return false;
+}
+
+function logged_in(){
+	if (empty($_SESSION['id'])) { 
+		return false;
+	}
+	else{
+		return true;
 	}
 }
