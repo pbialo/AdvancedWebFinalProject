@@ -9,14 +9,35 @@
 	include "partials/html_header.php";
 ?>
 <body>
-	<h1> Testing </h1>  
-
-
-
+	<?php include 'partials/header.php'; ?>	
+	<section>
+		<div class="row">
+			<h1> Testing </h1>
+			<br>
+			<br>
+			<br>
+			<br>
+			<p>Test</p>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<h3> Testing </h3>
+	</div>
+	</section>
 	<?php 
 		include 'partials/footer.php'; 
-	?>
-	<?php 
 		include "partials/js_loading.php"; 
 	?>
 </body>

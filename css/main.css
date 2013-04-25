@@ -1,0 +1,41 @@
+/*
+    File Name: main.css
+    Author Name: Paul Bialo
+    Web Site Name: Blogging Site
+    File Description: Styling changes performed after Base template package is applied
+*/
+
+
+header {
+	height: 140px;
+	width: 100%;
+}
+
+.wrapper {
+    padding: 20px;
+}
+
+footer {
+	text-align: center;
+}
+
+nav {
+	float:right;
+	margin-right: 2%;
+}
+
+nav .button {
+    padding: 7px 15px 7px;
+    width: 120px;
+}
+
+.row {
+	margin: 2%;
+}
+#mainheader {
+	text-align:left;
+	color:black;
+	margin-left: 2%;
+	margin-right: 2%;
+}
+
