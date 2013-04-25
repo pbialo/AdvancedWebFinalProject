@@ -12,6 +12,7 @@
 	<?php include 'partials/header.php'; ?>	
 	<section>
 		<div class="row">
+			<?php include 'partials/success_messages.php'; ?>
 			<h1> Testing </h1>
 			<br>
 			<br>

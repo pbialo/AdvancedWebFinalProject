@@ -10,19 +10,20 @@
 
 	$login_error = '';
 	//Give an error if either field is empty:
-	if (!empty($_POST)) :
-	 	if (empty($_POST['username']) or (empty($_POST['password']))) :
+	if (!empty($_POST)):
+	 	if (empty($_POST['username']) or (empty($_POST['password']))):
 			$login_error = "Login failed. Try again.";
 	  	endif;
 
 	  	//If both fields are entered, check the username and password against the database
 	 	$username = $_POST['username'];
-	  	if (empty($login_errors)) :
+	  	if (empty($login_error)) :
 			$username_exists = check_username_exists($_POST['username']);
 			if ($username_exists) :
 		 		$username_match = check_password_correct($_POST['username'], $_POST['password']);
 		  		if ($username_match) :
 					$_SESSION['id'] = $username_match;
+					$_SESSION['messages'] = "Logged in!";
 					header('Location: index.php');
 					die;
 		 		else:
@@ -47,7 +48,7 @@
 				<h2>
 					Log-in
 				</h2>
-				<?php include 'partials/messages.php'; ?>
+				<?php include 'partials/error_messages.php'; ?>
 				<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
 					<label>Username: </label>
 					<input type="text" name="username">

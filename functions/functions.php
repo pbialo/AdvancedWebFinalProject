@@ -2,7 +2,7 @@
 /*
     File Name: functions.php
     Author's name: Paul Bialo
-    Web site name: Paul Bialo's Personal Portfolio
+    Web site name: Blogging Site
     File Description: Includes the functions called
 */
 
@@ -37,6 +37,22 @@ function check_username_exists($username){
 	return $username_exists;
 }
 
+function check_email_address_exists($email_address){
+	global $db;
+	$query = "SELECT * FROM users WHERE email_address = ?";
+	$stmt = $db->prepare($query);
+	$stmt->execute(array($email_address));
+	$row_count = $stmt->rowCount();
+
+	if (empty($row_count)) {
+		$email_address_exists = false;
+	} 
+	else {
+		$email_address_exists = true;
+	}
+	return $email_address_exists;
+}
+
 function check_password_correct($username, $password){
 	global $db;
 	$query = "SELECT * FROM users WHERE username = ? ";
@@ -58,4 +74,29 @@ function logged_in(){
 	else{
 		return true;
 	}
+}
+
+function get_user($id) {
+	global $db;
+	$query = "SELECT * FROM users WHERE id = ?";
+	$stmt = $db->prepare($query);
+	$stmt->execute(array($id));
+	return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+function register_user($username, $password, $email_address) {
+  global $db;
+  $password = SHA1($password);
+  $query = " INSERT INTO users (username, password, email_address) VALUES (?, ?, ?) ";
+  $stmt = $db->prepare($query);
+  $stmt->execute(array($username, $password, $email_address));
+  
+  $_SESSION['id'] = $db->lastInsertId();
+}
+
+function update_profile($id, $name, $email){
+	global $db;
+ 	$query = "UPDATE users SET email_address = ? WHERE id = ?";
+	$stmt = $db->prepare($query);
+	$stmt->execute(array($email_address, $id));
 }

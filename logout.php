@@ -8,5 +8,6 @@
 	include "functions/functions.php";
 	session_destroy();
 	session_start();
+	$_SESSION['messages'] = "Logged out!";
 	header("Location: index.php");
 	die;
