@@ -155,11 +155,11 @@ function post_blog($username_id, $blog_title, $blog_content) {
 
 function get_comments($blog_id) {
 	global $db;
-	$query = "SELECT * FROM comments where blog_id = ? ORDER BY comment_date ASC";
+	$query = "SELECT * FROM comments WHERE blog_id = ? ORDER BY comment_date ASC";
 	$stmt = $db->prepare($query);
 	$stmt->execute(array($blog_id));
-	$blogs = $stmt->fetchAll(PDO::FETCH_ASSOC);
-	return $blogs;
+	$comments = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	return $comments;
 }
 
 function post_comment($username_id, $blog_id, $comment){
@@ -169,4 +169,31 @@ function post_comment($username_id, $blog_id, $comment){
 	$stmt->execute(array($username_id, $blog_id, $comment));
 }
 
-//post_comment($logged_in_profile['id'], $blog['blog_id'], $_POST['new_comment']);
+function count_comments($blog_id){
+	$comments = get_comments($blog_id);
+	return count($comments);
+}
+
+function check_comments_allowed($blog_id){
+	$blog = get_blog($blog_id);
+	return $blog['comments_allowed'];
+}
+
+function disable_comments(){
+	global $db;
+	$query = "UPDATE blogs SET comments_allowed = 0 WHERE id = ?";
+	$stmt = $db->prepare($query);
+	$stmt->execute(array($_SESSION['blog_id']));
+}
+
+function check_if_blog_author($blog_id){
+	global $db;
+	$blog = get_blog($blog_id);
+	if ($blog['username_id'] == $_SESSION['id']){
+		return true;
+	}
+	else{
+		return false;
+	}
+
+}

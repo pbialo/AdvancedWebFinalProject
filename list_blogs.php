@@ -28,7 +28,7 @@ $blog = $blogs[0];
 		</tr>
 		<?php foreach ($blogs as $blog):?>
 			<tr>
-				<td><a href="blog.php?blog=<?php echo $blog['id'];?>"><?php echo htmlentities($blog['blog_title'])?></a></td>
+				<td><a href="blog.php?blog=<?php echo $blog['id'];?>"><?php echo htmlentities($blog['blog_title'])?> (<?php echo count_comments($blog['id']);?> comments)</a></td>
 				<td><?php echo htmlentities(get_username($blog['username_id']))?></td>
 				<td><?php echo date('l\ F jS\,  Y (h:i:s A)',(int)$blog['blog_date']);?></td>
 			</tr>

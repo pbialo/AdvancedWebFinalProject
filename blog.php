@@ -29,8 +29,19 @@
 			<?php
 				include 'list_comments.php'
 			?>
-								<br>
-			<a href="post_comment.php?blog=<?php echo $blog['id'];?>" class="button">Post comment</a>		
+			<?php
+				if(check_comments_allowed($blog['id'])): ?>
+					<br>
+					<a href="post_comment.php?blog=<?php echo $blog['id'];?>" class="button">Post comment</a>
+					<?php if(check_if_blog_author($blog['id'])): ?>
+						<a href="disable_comments.php" class="button">Disable comments</a>
+					<?php endif ?>
+
+				<?php else: ?>
+					<br>
+					<p>Comments closed.</p>
+				<?php endif ?>
+
 		</div>
 	</section>
 	<?php 
