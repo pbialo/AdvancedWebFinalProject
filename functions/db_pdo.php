@@ -1,9 +1,9 @@
 <?php
 /*
     File Name: pdo.php
-    Author's name: Paul Bialo
-    Web site name: Paul Bialo's Personal Portfolio
-    File Description: Database connection
+    Author name: Paul Bialo
+    Web Site Name: Paul's Blogging Site
+    File Description: Database connection PDO that is used throughout
 */
 
 	$db= new PDO("mysql:host=localhost;dbname=blog", "root", "password");

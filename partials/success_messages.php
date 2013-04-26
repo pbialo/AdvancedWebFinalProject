@@ -2,7 +2,7 @@
 /*
 	File Name: success_messages.php
 	Author's name: Paul Bialo
-	Web site name: Bloggin Site
+	Web site name: Paul's Blogging Site
 	File Description: Echos the latest success message
 */  
 

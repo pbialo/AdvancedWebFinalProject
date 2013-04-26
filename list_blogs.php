@@ -2,12 +2,14 @@
 /*
     File Name: list_blogs.php
     Author Name: Paul Bialo
-    Web Site Name: Blogging Site
+	Web site name: Paul's Blogging Site
     File Description: Shows most recent blog followed by list of older blogs
 */
-// Fill the blogs array. Index 0 is the most recent blog
+// Fill the blogs array. Index 0 is the most recent blog.
 $blogs= get_blogs();
 $blog = $blogs[0];
+//Remove the most recent blog from the array so it doesn't get posted twice.
+unset($blogs[0]);
 ?>
 <section>
 	<!-- Post the most recent blog !-->

@@ -1,8 +1,8 @@
 <?php
 /*
 	File Name: error_messages.php
-	Author's name: Paul Bialo
-	Web site name: Blogging Site
+	Author name: Paul Bialo
+	Web site name: Paul's Blogging Site
 	File Description: Echos the latest error message
 */  
 

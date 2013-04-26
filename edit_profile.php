@@ -2,7 +2,7 @@
 /*
 	File Name: edit_profile.php
 	Author Name: Paul Bialo
-	Web Site Name: Blogging Stie
+	Web site name: Paul's Blogging Site
 	File Description: Allows user to change their e-mail (for now)
 */
 

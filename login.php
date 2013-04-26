@@ -2,7 +2,7 @@
 /*
 	File Name: login.php
 	Author Name: Paul Bialo
-	Web Site Name: Blogging site
+	Web site name: Paul's Blogging Site
 	File Description: Login page
 */
 	include "functions/functions.php";
@@ -16,7 +16,7 @@
 			include 'partials/error_messages.php';
 			include 'partials/success_messages.php';
 			$login_error = '';
-			//Give an error if either field is empty:
+			//Checks if form was properly submitted
 			if (!empty($_POST)):
 		 		if (empty($_POST['username']) or (empty($_POST['password']))):
 					$login_error = "Login failed. Try again.";
@@ -32,6 +32,7 @@
 							$_SESSION['success_messages'] = "Logged in!";
 							header('Location: index.php');
 							die;
+						//Otherwise give errors since username or email address were not found  or incorrect password
 				 		else:
 							$login_error = "Login failed. Try again.";
 				  		endif;
@@ -45,6 +46,7 @@
 
 		<div class="row">
 			<div class="main">
+				<!-- Log-in form !-->
 				<h2>
 					Log-in
 				</h2>

@@ -2,7 +2,7 @@
 /*
 	File Name: register.php
 	Author Name: Paul Bialo
-	Web Site Name: Blogging Site
+	Web site name: Paul's Blogging Site
 	File Description: The page that allows the user to register for the system. 
 */
 
@@ -15,26 +15,28 @@
 	$email_address = '';
 
 	if (!empty($_POST)):
+		//Checks if form was submitted without blank fields
 		if (empty($_POST['username']) or empty($_POST['email_address']) or empty($_POST['password']) or empty($_POST['password_confirm'])):
 		  	$register_error= "Please fill out all fields.";
 		endif;
-
+		//Checks that both password fields match
 		if ($_POST['password'] != $_POST['password_confirm']):
 		  	$register_error = "Passwords do not match.";
 		endif;
-		
-
 		if (empty($register_error)):
+			//Checks if e-mail address is in use
 			if (check_email_address_exists($_POST['email_address'])):
 				$register_error = "E-mail address already in use.";
 				$username = $_POST['username'];
 				$password = $_POST['password'];
 				$_SESSION['error_messages'] = $register_error;
+			//Checks if username is in use
 			elseif (check_username_exists($_POST['username'])):
 				$register_error = "Username already in use.";
 				$email_address = $_POST['email_address'];
 				$password = $_POST['password'];
 				$_SESSION['error_messages'] = $register_error;
+			//Otherwise, add user to database
 			else:
 			 	register_user($_POST['username'], $_POST['password'], $_POST['email_address']);
 			 	$_SESSION['success_messages'] = "Successfully registered";
@@ -53,6 +55,7 @@
 	<?php include 'partials/header.php'; ?>
 	<div class="row">
 		<div class="main">
+			<!-- Register form !-->	
 			<h2>
 				Register
 			</h2>		

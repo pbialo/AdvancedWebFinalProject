@@ -2,7 +2,7 @@
 /*
 	File Name: header.php
 	Author Name: Paul Bialo
-	Web Site Name: Blogging Site
+	Web site name: Paul's Blogging Site
 	File Description: Header used throughout web site. "Required" at top of pages. Two different nav bars for if logged in or not.
 */  
 

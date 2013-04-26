@@ -2,7 +2,7 @@
 /*
 	File Name: html_header.php
 	Author Name: Paul Bialo
-	Web Site Name: Blogging Site
+	Web site name: Paul's Blogging Site
 	File Description: HTML header used throughout web site
 */  
 	echo '
@@ -18,7 +18,7 @@
 			<meta charset="utf-8">
 			<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-			<title>PB Blogging</title>
+			<title>Paul\'s Blogging Site</title>
 			<meta name="description" content="">
 			<meta name="keywords" content="" />
 			<meta name="author" content="Paul Bialo" />

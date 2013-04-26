@@ -2,8 +2,8 @@
 /*
     File Name: index.php
     Author Name: Paul Bialo
-    Web Site Name: Blogging Site
-    File Description: Home page
+    Web site name: Paul's Blogging Site
+    File Description: Main page. Lists blogs if logged in.
 */
 	include "functions/functions.php";
 	include "partials/html_header.php";

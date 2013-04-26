@@ -2,7 +2,7 @@
 /*
 	File Name: get_blog.php
 	Author Name: Paul Bialo
-	Web Site Name: Bloggin Site
+	Web site name: Paul's Blogging Site
 	File Description: The page that gets the value for $blog_number
 */
 

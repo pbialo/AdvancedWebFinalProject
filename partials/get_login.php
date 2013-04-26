@@ -2,8 +2,8 @@
 /*
 	File Name: get_login.php
 	Author Name: Paul Bialo
-	Web Site Name: Blogging Site
-	File Description: Makes sure user is logged in
+	Web site name: Paul's Blogging Site
+	File Description: Makes sure user is logged in to access most pages
 */
 	if (empty($_SESSION['id'])) :
 		session_destroy();
