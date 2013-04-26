@@ -25,6 +25,9 @@
 			<p><?php echo htmlentities($blog['blog_content'])?></p>
 			<br>
 			<h6>Comments</h6>
+			<?php
+				include 'list_comments.php'
+			?>
 		</div>
 	</section>
 	<?php 

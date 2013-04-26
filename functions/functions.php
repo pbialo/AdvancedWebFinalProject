@@ -152,3 +152,12 @@ function post_blog($username_id, $blog_title, $blog_content) {
 	$stmt = $db->prepare($query);
 	$stmt->execute(array($username_id, $blog_title, $blog_content));
 }
+
+function get_comments($blog_id) {
+	global $db;
+	$query = "SELECT * FROM comments where blog_id = ?";
+	$stmt = $db->prepare($query);
+	$stmt->execute(array($blog_id));
+	$blogs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	return $blogs;
+}

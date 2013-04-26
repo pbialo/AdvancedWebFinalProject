@@ -76,3 +76,14 @@ td {
 td a {
 	text-decoration: underline;
 }
+
+.comment_author_date {
+	font-style: italic;
+	border-bottom: solid black 1px;
+	font-size: 0.75em;
+}
+
+.comment {
+	margin-top: 5px;
+	border-top: solid black 1px;
+}
