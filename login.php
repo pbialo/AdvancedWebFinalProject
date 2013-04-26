@@ -44,7 +44,7 @@
 		  <?php include 'partials/header.php'; ?>
 		  
 		  <div class="row">
-			<div class="login">
+			<div class="main">
 				<h2>
 					Log-in
 				</h2>

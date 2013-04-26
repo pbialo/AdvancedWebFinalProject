@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<!--
+<?php 
+/*
 	File Name: register.php
 	Author Name: Paul Bialo
 	Web Site Name: Blogging Site
 	File Description: The page that allows the user to register for the system. 
--->
+*/
 
-<?php 
+
 	include "functions/functions.php";
 	include 'partials/html_header.php'; 
 
@@ -52,7 +52,7 @@
 <body>
 	<?php include 'partials/header.php'; ?>
 	<div class="row">
-		<div class="login">
+		<div class="main">
 			<h2>
 				Register
 			</h2>		

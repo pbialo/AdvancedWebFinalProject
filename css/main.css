@@ -28,7 +28,8 @@ nav .button {
 }
 
 .row {
-	margin: 1%;
+margin-left:10%;
+margin-right:10%;
 }
 
 #mainheader {
@@ -40,7 +41,7 @@ nav .button {
 	margin-top: 0;
 }
 
-.login {
+.main {
 margin-left:10%;
 margin-right:10%;
 
@@ -48,5 +49,10 @@ margin-right:10%;
 
 #error {
 	color: red;
+	font-style: italic;
+}
+
+#success {
+	color: blue;
 	font-style: italic;
 }

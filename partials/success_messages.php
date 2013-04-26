@@ -8,7 +8,7 @@
 
 $messages = get_messages();    
 ?>
-<div id="successs">
+<div id="success">
 	<?php
 		echo "<p>".htmlentities($messages)."</p>";
 	?>

@@ -94,7 +94,7 @@ function register_user($username, $password, $email_address) {
   $_SESSION['id'] = $db->lastInsertId();
 }
 
-function update_profile($id, $name, $email){
+function update_user($id, $email_address){
 	global $db;
  	$query = "UPDATE users SET email_address = ? WHERE id = ?";
 	$stmt = $db->prepare($query);
