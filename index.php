@@ -12,7 +12,10 @@
 	<?php include 'partials/header.php'; ?>	
 	<section>
 		<div class="row">
-			<?php include 'partials/success_messages.php'; ?>
+			<?php 
+				include 'partials/success_messages.php'; 
+				include 'partials/error_messages.php';
+			?>
 			<!-- Only show blogs if logged in !-->
 			<?php
 				if (!logged_in()):

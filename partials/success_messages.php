@@ -2,11 +2,11 @@
 /*
 	File Name: success_messages.php
 	Author's name: Paul Bialo
-	Web site name: Paul Bialo's Personal Portfolio
-	File Description: 
+	Web site name: Bloggin Site
+	File Description: Echos the latest success message
 */  
 
-$messages = get_messages();    
+$messages = get_success_messages();    
 ?>
 <div id="success">
 	<?php

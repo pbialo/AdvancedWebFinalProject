@@ -13,11 +13,20 @@ date_default_timezone_set('America/New_York');
 $errors = array();
 $field_errors = array();
 
-function get_messages() {
+function get_error_messages() {
     $messages_array = '';
-    if (isset($_SESSION['messages'])) :
-        $messages_array = $_SESSION['messages'];
-        unset($_SESSION['messages']);        
+    if (isset($_SESSION['error_messages'])) :
+        $messages_array = $_SESSION['error_messages'];
+        unset($_SESSION['error_messages']);        
+    endif;
+    return $messages_array;
+}
+
+function get_success_messages() {
+    $messages_array = '';
+    if (isset($_SESSION['success_messages'])) :
+        $messages_array = $_SESSION['success_messages'];
+        unset($_SESSION['success_messages']);        
     endif;
     return $messages_array;
 }
@@ -136,3 +145,10 @@ function get_blog($blog_id) {
 	return $blogs[0];
 }
 
+
+function post_blog($username_id, $blog_title, $blog_content) {
+	global $db;
+	$query = "INSERT INTO blogs (username_id, blog_title, blog_content, blog_date) VALUES (?, ?, ?, UNIX_TIMESTAMP());";
+	$stmt = $db->prepare($query);
+	$stmt->execute(array($username_id, $blog_title, $blog_content));
+}

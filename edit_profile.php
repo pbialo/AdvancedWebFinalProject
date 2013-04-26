@@ -8,6 +8,7 @@
 
 
 	include "functions/functions.php";
+	include 'partials/get_login.php'; 
 	include 'partials/html_header.php'; 
 
 	$update_error = '';
@@ -43,7 +44,7 @@
 	<div class="row">
 		<div class="main">
 			<h2>
-				Edit Profile
+				Edit Profile (<?php echo htmlentities($logged_in_profile['username'])?>)
 			</h2>		
 			<?php include 'partials/error_messages.php'; ?>
 			<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">

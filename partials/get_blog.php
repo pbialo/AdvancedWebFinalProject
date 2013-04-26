@@ -10,9 +10,13 @@
 		$blog_number = $_POST['blog'];
 	elseif (!empty($_GET['blog'])): 
 		$blog_number = $_GET['blog'];
-	else :
-		set_message("error", "Invalid survey id.");
-		header('Location: index.php');
+	else:
 		die;
 	endif;
 	$blog = get_blog($blog_number);
+
+	if (empty($blog)):
+		$blog_error = "Blog with this id not found. Try again.";
+		$_SESSION['error_messages'] = $blog_error;
+		header('Location: index.php');
+	endif;

@@ -29,22 +29,22 @@
 				$register_error = "E-mail address already in use.";
 				$username = $_POST['username'];
 				$password = $_POST['password'];
-				$_SESSION['messages'] = $register_error;
+				$_SESSION['error_messages'] = $register_error;
 			elseif (check_username_exists($_POST['username'])):
 				$register_error = "Username already in use.";
 				$email_address = $_POST['email_address'];
 				$password = $_POST['password'];
-				$_SESSION['messages'] = $register_error;
+				$_SESSION['error_messages'] = $register_error;
 			else:
 			 	register_user($_POST['username'], $_POST['password'], $_POST['email_address']);
-			 	$_SESSION['messages'] = "Successfully registered";
+			 	$_SESSION['success_messages'] = "Successfully registered";
 			 	header("Location: index.php");
 				die;
 			endif;
 		else:
 		 	$email_address = $_POST['email_address'];
 		  	$username = $_POST['username'];
-		  	$_SESSION['messages'] = $register_error;
+		  	$_SESSION['error_messages'] = $register_error;
 		endif;
 	endif;
 ?>
