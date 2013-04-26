@@ -11,7 +11,7 @@
 			<h1 id="mainheader">Paul's Blog Site</h1>          
 			<nav>
 				<a href="index.php" class="button">Home</a>
-				<a href="edit_profile.php" class="button">Edit Profile</a>
+				<a href="edit_profile.php" class="button">My Profile</a>
 				<a href="post_blog.php" class="button">New Blog</a>
 				<a href="logout.php" class="button">Logout</a>
 			</nav>
