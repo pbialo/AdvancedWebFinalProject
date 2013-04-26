@@ -8,7 +8,7 @@
 
 session_start();
 require "functions/db_pdo.php";
-date_default_timezone_set('America/New_York');
+date_default_timezone_set('America/New_York');	
 
 $errors = array();
 $field_errors = array();
@@ -126,3 +126,13 @@ function get_blogs() {
 	$blogs = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	return $blogs;
 }
+
+function get_blog($blog_id) {
+	global $db;
+	$query = "SELECT * FROM blogs where id = ?";
+	$stmt = $db->prepare($query);
+	$stmt->execute(array($blog_id));
+	$blogs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	return $blogs[0];
+}
+

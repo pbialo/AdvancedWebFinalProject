@@ -73,6 +73,6 @@ td {
 	width: 33%;
 }
 
-th {
-
+td a {
+	text-decoration: underline;
 }

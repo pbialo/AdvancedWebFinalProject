@@ -13,7 +13,7 @@
 	<section>
 		<div class="row">
 			<?php include 'partials/success_messages.php'; ?>
-
+			<!-- Only show blogs if logged in !-->
 			<?php
 				if (!logged_in()):
 			?>
