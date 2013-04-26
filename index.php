@@ -13,29 +13,18 @@
 	<section>
 		<div class="row">
 			<?php include 'partials/success_messages.php'; ?>
-			<h1> Testing </h1>
-			<br>
-			<br>
-			<br>
-			<br>
-			<p>Test</p>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<h3> Testing </h3>
-	</div>
+
+			<?php
+				if (!logged_in()):
+			?>
+				<h2>Welcome</h2>
+				<br>
+				<p>Register and login to view blogs!</p>
+			<?php
+				else:
+					include 'list_blogs.php';
+				endif;	
+			?>
 	</section>
 	<?php 
 		include 'partials/footer.php'; 

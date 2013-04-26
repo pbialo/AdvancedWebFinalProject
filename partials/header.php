@@ -13,7 +13,7 @@
 				<a href="index.php" class="button">Home</a>
 				<a href="edit_profile.php" class="button">Edit Profile</a>
 				<a href="post_blog.php" class="button">New Blog</a>
-				<a href="logout.php" class="button">Log-Out</a>
+				<a href="logout.php" class="button">Logout</a>
 			</nav>
 		</header>
 	<?php	
@@ -29,7 +29,3 @@
 		</header>
 	<?php	
 	endif;
-
-?>
-
-<?php

@@ -32,6 +32,10 @@ margin-left:10%;
 margin-right:10%;
 }
 
+.blog_subheading {
+	font-style: italic;
+}
+
 #mainheader {
 	text-align:left;
 	color:black;
@@ -55,4 +59,20 @@ margin-right:10%;
 #success {
 	color: blue;
 	font-style: italic;
+}
+
+table {
+	width: 100%;
+}
+
+tr, th {
+	height: 50px;
+}
+
+td {
+	width: 33%;
+}
+
+th {
+
 }

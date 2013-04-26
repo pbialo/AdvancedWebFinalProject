@@ -8,6 +8,7 @@
 
 session_start();
 require "functions/db_pdo.php";
+date_default_timezone_set('America/New_York');
 
 $errors = array();
 $field_errors = array();
@@ -84,14 +85,31 @@ function get_user($id) {
 	return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
+function get_email_address($id) {
+	global $db;
+	$query = "SELECT * FROM users WHERE id = ?";
+	$stmt = $db->prepare($query);
+	$stmt->execute(array($id));
+	$user = $stmt->fetch(PDO::FETCH_ASSOC);
+	return $user['email_address'];
+}
+
+function get_username($id) {
+	global $db;
+	$query = "SELECT * FROM users WHERE id = ?";
+	$stmt = $db->prepare($query);
+	$stmt->execute(array($id));
+	$user = $stmt->fetch(PDO::FETCH_ASSOC);
+	return $user['username'];
+}
+
 function register_user($username, $password, $email_address) {
-  global $db;
-  $password = SHA1($password);
-  $query = " INSERT INTO users (username, password, email_address) VALUES (?, ?, ?) ";
-  $stmt = $db->prepare($query);
-  $stmt->execute(array($username, $password, $email_address));
-  
-  $_SESSION['id'] = $db->lastInsertId();
+	global $db;
+	$password = SHA1($password);
+	$query = " INSERT INTO users (username, password, email_address) VALUES (?, ?, ?) ";
+	$stmt = $db->prepare($query);
+	$stmt->execute(array($username, $password, $email_address));
+  	$_SESSION['id'] = $db->lastInsertId();
 }
 
 function update_user($id, $email_address){
@@ -99,4 +117,12 @@ function update_user($id, $email_address){
  	$query = "UPDATE users SET email_address = ? WHERE id = ?";
 	$stmt = $db->prepare($query);
 	$stmt->execute(array($email_address, $id));
+}
+
+function get_blogs() {
+	global $db;
+	$query = "SELECT * FROM blogs ORDER BY blog_date DESC";
+	$stmt = $db->query($query);
+	$blogs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	return $blogs;
 }
