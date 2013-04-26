@@ -10,7 +10,6 @@ $comments = get_comments($blog['id']);
 
 if (empty($comments)):
 	echo '<br><p>No comments posted yet!</p>';
-	die;
 else:
 	foreach ($comments as $comment): ?>
 		<div class="comment">

@@ -155,9 +155,18 @@ function post_blog($username_id, $blog_title, $blog_content) {
 
 function get_comments($blog_id) {
 	global $db;
-	$query = "SELECT * FROM comments where blog_id = ?";
+	$query = "SELECT * FROM comments where blog_id = ? ORDER BY comment_date ASC";
 	$stmt = $db->prepare($query);
 	$stmt->execute(array($blog_id));
 	$blogs = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	return $blogs;
 }
+
+function post_comment($username_id, $blog_id, $comment){
+	global $db;
+	$query = "INSERT INTO comments (username_id, blog_id, comment, comment_date) VALUES (?, ?, ?, UNIX_TIMESTAMP());";
+	$stmt = $db->prepare($query);
+	$stmt->execute(array($username_id, $blog_id, $comment));
+}
+
+//post_comment($logged_in_profile['id'], $blog['blog_id'], $_POST['new_comment']);

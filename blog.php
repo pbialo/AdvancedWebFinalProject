@@ -8,7 +8,8 @@
 	include "functions/functions.php";
 	include 'partials/get_login.php'; 
 	include "partials/html_header.php";
-	include 'partials/get_blog.php'; 
+	include 'partials/get_blog.php';
+	$_SESSION['blog_id'] = $blog['id'];
 ?>
 <body>
 	<?php 
@@ -28,6 +29,8 @@
 			<?php
 				include 'list_comments.php'
 			?>
+								<br>
+			<a href="post_comment.php?blog=<?php echo $blog['id'];?>" class="button">Post comment</a>		
 		</div>
 	</section>
 	<?php 
